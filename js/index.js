@@ -15,13 +15,13 @@ document.querySelector('html').addEventListener('keypress', event => {
   event.target.style.backgroundColor = 'crimson'
 })
 
-// wheel
+//mouse wheel
 document.querySelector('html').addEventListener('wheel', event => {
   console.log(`wheel scroll`)
   event.target.style.backgroundColor = 'teal'
 })
 
-// drag / drop
+// drag & drop
 const dragStart = (e) => {
   initialX = e.clientX - xOffset
   initialY = e.clientY - yOffset
@@ -77,7 +77,7 @@ dropZone.ondragover = drag
 dropZone.ondrop = drop
 
 
-// load
+//load
 window.addEventListener('load', () => {
   console.log(`site loaded!`)
   document.querySelectorAll('h1, h2, h4').forEach(elem => {
@@ -85,7 +85,7 @@ window.addEventListener('load', () => {
   })
 })
 
-// focus
+//focus
 window.addEventListener('focus', (e) => {
     console.log('FOCUS')
     document.querySelector('.intro h2').textContent = `FOCUS`
@@ -96,13 +96,13 @@ window.addEventListener('focus', (e) => {
     document.querySelector('.intro h2').textContent = "LOST FOCUS"
   })
 
-// resize
+//window resize
 window.addEventListener('resize', (e) => {
   alert(`Page reset`)
   location.reload()
 })
 
-// scroll
+//window scroll
 window.addEventListener('scroll', (e) => {
   console.log(`Scroll event: ${e}`)
 
@@ -112,7 +112,6 @@ window.addEventListener('scroll', (e) => {
 })
 
 // select
-// code based on MDN example: https://developer.mozilla.org/en-US/docs/Web/Events/select#Example
 const input = document.createElement('input')
 input.value = `select some text in this element.`
 input.setAttribute(
@@ -145,3 +144,7 @@ document.querySelectorAll('.btn ').forEach(elem => {
     e.target.textContent = 'Double-Clicked!'
   })
 })
+
+// stop prop
+document.querySelector('header').addEventListener('wheel', event => event.stopImmediatePropagation())
+document.querySelector('.home').addEventListener('wheel', event => event.stopImmediatePropagation())
