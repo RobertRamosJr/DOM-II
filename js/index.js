@@ -86,10 +86,15 @@ window.addEventListener('load', () => {
 })
 
 // focus
-// document.querySelector('.text-content h2').addEventListener('focus', (e) => {
-//   console.log(`Event is: ${JSON.stringify(e)}`)
-//   e.target.style.color = 'purple'
-// })
+window.addEventListener('focus', (e) => {
+    console.log('FOCUS')
+    document.querySelector('.intro h2').textContent = `FOCUS`
+  })
+  
+  window.addEventListener('blur', (e) => {
+    console.log('LOST FOCUS')
+    document.querySelector('.intro h2').textContent = "LOST FOCUS"
+  })
 
 // resize
 window.addEventListener('resize', (e) => {
@@ -131,9 +136,9 @@ input.addEventListener('select', e => {
   document.querySelector('footer').prepend(selectedText)
 })
 
-// double click
+// dblclick
 document.querySelectorAll('.btn ').forEach(elem => {
-  elem.addEventListener('doubleclick', (e) => {
+  elem.addEventListener('dblclick', (e) => {
     console.log(`Event is: ${JSON.stringify(e)}`)
     e.target.style.color = 'yellow'
     e.target.style.backgroundColor = 'lightgrey'
